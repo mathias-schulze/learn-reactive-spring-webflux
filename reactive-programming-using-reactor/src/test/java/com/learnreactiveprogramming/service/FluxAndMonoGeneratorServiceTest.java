@@ -20,4 +20,14 @@ class FluxAndMonoGeneratorServiceTest {
                 .expectNextCount(2)
                 .verifyComplete();
     }
+
+    @Test
+    void namesFluxMap() {
+
+        Flux<String> namesFluxMap = service.namesFluxMap();
+
+        StepVerifier.create(namesFluxMap)
+                .expectNext("ANTON", "BERTRAM", "CLAUDIA")
+                .verifyComplete();
+    }
 }
